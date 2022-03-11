@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Craig Burke - checkerboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}" />
+  </head>
+  <body>
+    <style>
+      .color1 {
+        background-color: rgb(255, 0, 0);
+      }
+      .color2 {
+        background-color: rgb(0, 0, 0);
+      }
+    </style>
+    <div class="header color1 flex">
+      <h1>CHECKERBOARD</h1>
+    </div>
+    <div class="main-board">
+      {% if num %} {% for x in range(0,num) %} {% if x%2 ==0 %}
+      <div class="boxes">
+        <div class="box1 color1"></div>
+        <div class="box2 color2"></div>
+        <div class="box1 color1"></div>
+        <div class="box2 color2"></div>
+        <div class="box1 color1"></div>
+        <div class="box2 color2"></div>
+        <div class="box1 color1"></div>
+        <div class="box2 color2"></div>
+      </div>
+      {% else %}
+      <div class="boxes">
+        <div class="box2 color2"></div>
+        <div class="box1 color1"></div>
+        <div class="box2 color2"></div>
+        <div class="box1 color1"></div>
+        <div class="box2 color2"></div>
+        <div class="box1 color1"></div>
+        <div class="box2 color2"></div>
+        <div class="box1 color1"></div>
+      </div>
+      {% endif %} {% endfor %} {% else %} {% for b in range(1,9) %} {% if b % 2 == 0 %}
+      <div class="boxes">
+        <div class="box2 color2"></div>
+        <div class="box1 color1"></div>
+        <div class="box2 color2"></div>
+        <div class="box1 color1"></div>
+        <div class="box2 color2"></div>
+        <div class="box1 color1"></div>
+        <div class="box2 color2"></div>
+        <div class="box1 color1"></div>
+      </div>
+      {% else %}
+      <div class="boxes">
+        <div class="box1 color1"></div>
+        <div class="box2 color2"></div>
+        <div class="box1 color1"></div>
+        <div class="box2 color2"></div>
+        <div class="box1 color1"></div>
+        <div class="box2 color2"></div>
+        <div class="box1 color1"></div>
+        <div class="box2 color2"></div>
+      </div>
+      {% endif %} {% endfor %} {% endif %}
+    </div>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
+  </body>
+</html>
